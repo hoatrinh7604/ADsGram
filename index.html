@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CatLucky</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <link rel="manifest" href="manifest.webmanifest">
+	<script src="https://telegram.org/js/telegram-web-app.js"></script>
+	<script src="https://sad.adsgram.ai/js/sad.min.js"></script>
+  </head>
+  <body>
+  <div style="z-index: 3">
+	<button id="ad" >Show ad</button>
+	</div>
+    
+	
+        <script>
+            // insert your block id
+            const AdController = window.Adsgram.init({ blockId: "3963" });
+            const button = document.getElementById('ad');
+            button.addEventListener('click', () => {
+                AdController.show().then((result) => {
+                    // user watch ad till the end
+                    // your code to reward user
+					console.log("AD Completed: " + JSON.stringify(result));
+                    alert('Reward');
+                }).catch((result) => {
+                    // user skipped video or get error during playing ad
+                    // do nothing or whatever you want
+					console.log("AD Fail: " + JSON.stringify(result));
+                    alert(JSON.stringify(result, null, 4));
+                })
+            })
+        </script>
+	
+  </body>
+</html>
